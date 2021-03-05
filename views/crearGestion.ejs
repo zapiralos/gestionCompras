@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--head-->
+<%- include("partials/head", {title: "Gestión de Compras" }) -%>
+
+    <body>
+
+        <!--header-->
+        <%- include("partials/header") -%>
+
+            <h3>Formulario de Carga</h3>
+            <h5>Sitio para análisis de propuestas de compra en medicamentos y protesis</h5>
+
+            <form action="/gestiones/crear" method="POST">
+                <div>
+                    <label for="">Número de GSC</label>
+                    <input type="text" name="gsc">
+                </div>
+                <div>
+                    <label for="">Número de AP</label>
+                    <input type="text" name="ap">
+                </div>
+                <div>
+                    <label for="">Número de Socio</label>
+                    <input type="text" name="socio">
+                </div>
+                <div>
+                    <label for="">Número de GSC</label>
+                    <input type="text" name="gsc">
+                </div>
+                    
+                <div>
+                    <p>
+                        boton de medicamento
+
+                    </p>
+                </div>
+                
+                <!--esto abre una pagina para seleccionar medicamento-->
+
+                <div>
+                    <label for="">Número de GSC</label>
+                    <input type="text" name="gsc">
+                </div>
+                <div>
+                    <label for="">Número de GSC</label>
+                    <input type="text" name="gsc">
+                </div>
+            </form>
+
+    </body>
+
+    <!--footer-->
+    <%- include("partials/footer") -%>
+
+</html>

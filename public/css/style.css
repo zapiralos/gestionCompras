@@ -1,10 +1,56 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  position: absolute;
+  margin: 0px;
+  background: linear-gradient(209.53deg, rgba(101, 162, 175, 0.45) 18.08%, #65A2AF 94.1%);
   
+}
 
+.caja {
+  position: absolute;
+  width: 255px;
+  height: 173px;
+
+  background: #FFFFFF;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.titulo {
+  position: absolute;
+  width: 251px;
+  height: 38px;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 38px;
+
+  color: #FFFFFF;
+}
+
+.copete {
+  position: absolute;
+  width: 153px;
+  height: 130px;
+
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 19px;
+  line-height: 26px;
+
+  color: #5E5E5E;
 }
 
 a {
-  color: #00B7FF;
+  color: #00B7FF; 
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+}
+
+nav ul li {
+  margin-right: 10px;
 }

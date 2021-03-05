@@ -4,6 +4,6 @@ var gestionesController = require("../controllers/gestionesController")
 
 
 /* Creación de gestiones */
-router.get("/crear" , gestionesController.crear);
+router.get("/crearGestion" , gestionesController.crear);
 
 module.exports = router;
