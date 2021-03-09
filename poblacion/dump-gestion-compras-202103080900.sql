@@ -48,10 +48,10 @@ DROP TABLE IF EXISTS `auditor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `auditor` (
-  `id_auditor` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) NOT NULL,
   `apellido` varchar(100) NOT NULL,
-  PRIMARY KEY (`id_auditor`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -118,7 +118,7 @@ CREATE TABLE `gestion` (
   CONSTRAINT `gestion_FK_1` FOREIGN KEY (`id_medicamento`) REFERENCES `medicamentos` (`id`),
   CONSTRAINT `gestion_FK_2` FOREIGN KEY (`id_protesis`) REFERENCES `protesis` (`id`),
   CONSTRAINT `gestion_FK_3` FOREIGN KEY (`id_analista`) REFERENCES `analista` (`id`),
-  CONSTRAINT `gestion_FK_4` FOREIGN KEY (`id_auditor`) REFERENCES `auditor` (`id_auditor`)
+  CONSTRAINT `gestion_FK_4` FOREIGN KEY (`id_auditor`) REFERENCES `auditor` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -239,6 +239,10 @@ LOCK TABLES `proveedor` WRITE;
 INSERT INTO `proveedor` VALUES (1,'Ortopedia Capital'),(2,'Dok'),(3,'Imation Ty'),(4,'Biolap'),(5,'Caruso'),(6,'Medical Implant'),(7,'Justo a Tiempo'),(8,'GENZYME'),(9,'Movistar'),(10,'Cirugia Universal'),(11,'Crosmed');
 /*!40000 ALTER TABLE `proveedor` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'gestion-compras'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -249,4 +253,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-05 14:33:48
+-- Dump completed on 2021-03-08  9:00:17
