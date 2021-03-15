@@ -4,13 +4,14 @@
   <!--head-->
   <%- include("partials/head", {title: "Gestión de Compras®" }) %>
   
-  <body>
+  <body class="">
     <!--header-->
     <%- include("partials/header") -%>
 
-    <main class="container d-flex flex-wrap">
-      <div class="content  d-flex align-items-center m-auto w-100">
-        <div class="card m-auto mt-5 mb-5 d-flex align-items-center shadow-sm p-3 mb-5 bg-body rounded">
+    <!--container-->
+    <main class="container d-flex flex-wrap animate__animated animate__zoomIn">
+      <div class="content  d-flex m-auto w-100 clear-top">
+        <div class="card m-auto d-flex shadow-sm p-3 mb-5 bg-body rounded">
           <div class="card-body d-flex align-items-center">
               <ul class="m-0 p-0">
                 <li class="boton_home mb-3">
@@ -32,17 +33,12 @@
           </div>
         </div>
       </div>
-      <div class="d-flex m-auto">
-        <p id="copete">Sitio para análisis de propuestas de compra en medicamentos y protesis</p>
-      </div>
     </main>
-    
 
-    
-    
     <!--footer-->
+    <footer class="">
       <%- include("partials/footer") -%>
-    
+    </footer>
     
   </body>
 </html>

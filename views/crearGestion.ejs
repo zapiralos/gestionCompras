@@ -9,49 +9,109 @@
         <!--header-->
         <%- include("partials/header") -%>
 
-            <h3>Formulario de Carga</h3>
-            <h5>Sitio para análisis de propuestas de compra en medicamentos y protesis</h5>
+        <!--container-->
+        <section class="container">
+            <div class="row">
+                <form
+                    class="col-xl-7 col-lg-7 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn"
+                    action="/gestiones/crear" method="POST">
 
-            <form action="/gestiones/crear" method="POST">
-                <div>
-                    <label for="">Número de GSC</label>
-                    <input type="text" name="gsc">
-                </div>
-                <div>
-                    <label for="">Número de AP</label>
-                    <input type="text" name="ap">
-                </div>
-                <div>
-                    <label for="">Número de Socio</label>
-                    <input type="text" name="socio">
-                </div>
-                <div>
-                    <label for="">Número de GSC</label>
-                    <input type="text" name="gsc">
-                </div>
+                    <div class="col-12">
+                        <h5 class="text-secondary">
+                            <i class="fas fa-border-all"></i> Crear Gestión
+                        </h5>
+                    </div>
                     
-                <div>
-                    <p>
-                        boton de medicamento
+                    <div class="dropdown-divider"></div>
+                   
+                    <div class="form-group row">
+                        <!-- gsc -->
+                        <div class="form-group col">
+                            <label for="gsc">GSC</label>
+                            <input type="text" class="form-control" name="gsc" id="gsc"
+                                aria-describedby="gsc" />
+                            <div id="validacion_gsc" class="text-danger form-group col"></div> 
+                            <!--a futuro implementar validación de datos-->
+                        </div>
+        
+                        <!-- ap -->
+                        <div class="form-group col">
+                            <label for="ap">AP</label>
+                            <input type="text" class="form-control" name="ap" id="ap" aria-describedby="ap" />
+                            <div id="validacion_ap" class="text-danger form-group col"></div> 
+                            <!--a futuro implementar validación de datos-->
+                        </div>
+                    </div>
 
-                    </p>
-                </div>
-                
-                <!--esto abre una pagina para seleccionar medicamento-->
-
-                <div>
-                    <label for="">Número de GSC</label>
-                    <input type="text" name="gsc">
-                </div>
-                <div>
-                    <label for="">Número de GSC</label>
-                    <input type="text" name="gsc">
-                </div>
-            </form>
+                    <div class="form-group row">
+                        <!--Socio -->
+                        <div class="form-group col">
+                            <label for="socio">Socio</label>
+                            <input type="text" class="form-control" name="socio" id="socio" aria-describedby="socio" />
+                            <div id="validacion_socio" class="text-danger form-group col"></div>
+                            <!--a futuro implementar validación de datos-->
+                        </div>
+                    
+                        <!-- fecha -->
+                        <div class="form-group col">
+                            <label for="fecha">Fecha</label>
+                            <input type="datetime-local" class="form-control" name="fecha" id="fecha" aria-describedby="fecha" />
+                            <div id="validacion_fecha" class="text-danger form-group col"></div>
+                            <!--a futuro implementar validación de datos-->
+                        </div>
+                    </div>
+                       
+                    <div class="form-group row bg-light">
+                        <div class="prestador form-group col">
+                            <a href="/gestiones/crearGestion">
+                                <button type="button" class="btn btn-outline-info btn-sm">
+                                    <i class="far fa-file-alt"></i> Prestador
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                    
+        
+                    <!-- password2 -->
+                    <div class="form-group">
+                        <label for="pass2">Repita su contraseña</label>
+                        <input type="password" class="form-control" name="pass2" id="pass2" aria-describedby="pass2" />
+                        <div id="validacion_password2" class="text-danger"></div>
+                        <div id="validacion_password2_esigual" class="text-danger"></div>
+                    </div>
+        
+                    <!-- avatar -->
+                    <p class="mb-1">Seleccione una imagen</p>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="avatar" id="avatar" lang="es" />
+                        <label class="custom-file-label" for="avatar">Seleccionar Archivo</label>
+                        <div id="validacion_avatar" class="text-danger"></div>
+                        <div id="validacion_avatar_format" class="text-danger"></div>
+                    </div>
+        
+                    <!-- políticas -->
+                    <div class="col-12 d-flex justify-content-center mt-3">
+                        <div class="form-check mt-2">
+                            <input class="form-check-input" type="checkbox" name="politic" value="true" id="politic" />
+                            <label class="form-check-label" for="politic">
+                                Acepto Terminos y Condiciones
+                            </label>
+                        </div>
+                    </div>
+                    <!-- boton enviar -->
+                    <div class="col-12 d-flex justify-content-center mt-2">
+                        <button type="submit" class="btn btn-outline-warning mt-3 mb-3">
+                            Registrate
+                        </button>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                </form>
+            </div>
+        </section>
+    <!--footer-->
+        <footer class="">
+            <%- include("partials/footer") -%>
+        </footer>
 
     </body>
-
-    <!--footer-->
-    <%- include("partials/footer") -%>
-
 </html>
