@@ -23,7 +23,10 @@ module.exports = function(sequelize, dataTypes){
         },
         rating: {
             type: dataTypes.DECIMAL(3,1)
-        }
+        },
+        especialidad: {
+            type: dataTypes.STRING(15)
+        } 
     }
 
     let config = {
