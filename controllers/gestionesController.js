@@ -16,22 +16,22 @@ let {
 
 let gestionesController = {
 
-    //crear: async (req, res) => {
+    crear: async (req, res) => {
 
-    //    const analista = await Analista.findAll();
-    //    const auditor = await Auditor.findAll();
-    //    const estado = await Estado.findAll();
-    //    const proveedor = await Proveedor.findAll();
-
-    //    return res.render("formularioDeCarga", { analista, auditor, estado, proveedor });
-    //}
-
-    crear: function (req, res) {
-        db.Gestion.findAll()
-            .then(function(gestion){
-                return res.render("crearGestion", {gestion:gestion});
-            })
+       const analista = await Analista.findAll();
+       const auditor = await Auditor.findAll();
+       
+       return res.render("crearGestion", { analista , auditor });
     }
+
+    // crear: function (req, res) {
+    //     db.Gestion.findAll()
+    //     db.Analista.findAll()
+    //     db.Auditor.findAll()
+    //         .then(function(gestion){
+    //             return res.render("crearGestion", {gestion});
+    //         })
+    // }
 
 }
 

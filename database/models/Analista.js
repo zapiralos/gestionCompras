@@ -25,8 +25,8 @@ module.exports = function(sequelize, dataTypes){
     let Analista = sequelize.define(alias, cols, config);
 
     Analista.associate = function(models) {
-        Analista.belongsTo(models.Gestion, {
-            as: "gestionAnalista", 
+        Analista.hasMany(models.Gestion, {
+            as: "gestionesAnalista", 
             foreignKey: "id_analista"
         });
     }

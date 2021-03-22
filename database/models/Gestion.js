@@ -10,13 +10,13 @@ module.exports = function(sequelize, dataTypes){
             autoIncrement: true
         },
         gsc: {
-            type: dataTypes.INTEGER(11)
+            type: dataTypes.STRING(15)
         },
         ap: {
-            type: dataTypes.INTEGER(11)
+            type: dataTypes.STRING(15)
         },
         socio: {
-            type: dataTypes.INTEGER(11)
+            type: dataTypes.STRING(15)
         },
         id_medicamento: {
             type: dataTypes.INTEGER(11)
@@ -49,24 +49,29 @@ module.exports = function(sequelize, dataTypes){
     let Gestion = sequelize.define(alias, cols, config);
 
     Gestion.associate = function(models) {
+        //una gestión a varios medicamentos
         Gestion.hasMany(models.Medicamento, {
             as: "medicamentos", 
             foreignKey: "id_medicamento"
         });
+        //una gestión a varias protesis
         Gestion.hasMany(models.Protesis, {
             as: "protesis", 
             foreignKey: "id_protesis"
         });
+        //una gestión a varios prestadores
         Gestion.hasMany(models.Prestador, {
             as: "prestadores", 
             foreignKey: "id_prestador"
         });
-        Gestion.hasMany(models.Auditor, {
-            as: "auditores", 
+        //una gestión a un auditor
+        Gestion.belongsTo(models.Auditor, {
+            as: "auditor", 
             foreignKey: "id_auditor"
         });
-        Gestion.hasMany(models.Analista, {
-            as: "analistas", 
+        //una gestión a un analista
+        Gestion.belongsTo(models.Analista, {
+            as: "analista", 
             foreignKey: "id_analista"
         });
     }

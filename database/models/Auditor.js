@@ -25,8 +25,9 @@ module.exports = function(sequelize, dataTypes){
     let Auditor = sequelize.define(alias, cols, config);
 
     Auditor.associate = function(models) {
-        Auditor.belongsTo(models.Gestion, {
-            as: "gestionAuditor", 
+        //un auditor a varias gestiones
+        Auditor.hasMany(models.Gestion, {
+            as: "gestionesAuditor", 
             foreignKey: "id_auditor"
         });
     }
