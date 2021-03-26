@@ -9,6 +9,12 @@ module.exports = function(sequelize, dataTypes){
             primaryKey: true,
             autoIncrement: true
         },
+        nom_med: {
+            type: dataTypes.STRING(100)
+        },
+        nom_gen_med: {
+            type: dataTypes.STRING(100)
+        },
         valor_med: {
             type: dataTypes.DECIMAL(10,2)
         },

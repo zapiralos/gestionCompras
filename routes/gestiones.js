@@ -10,6 +10,8 @@ router.post("/crear" , gestionesController.guardadoGestion);
 
 
 
+
+
 /* vista de gestion */
 router.get("/vista", gestionesController.vista);
 
