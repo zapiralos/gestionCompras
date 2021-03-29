@@ -4,13 +4,14 @@
 <!--head-->
 <%- include("partials/head", {title: "Gestión de Compras" }) -%>
 
-    <body>
+    <body class="d-flex align-items-between flex-wrap">
 
         <!--header-->
-        <%- include("partials/header") -%>
-
+        <div class="align-items-start w-100">
+            <%- include("partials/header") -%>
+        </div>
         <!--container-->
-        <section class="container pt-5">
+        <section class="container mt-5 mb-5">
             <div class="row">
                 <form
                     class="col-xl-7 col-lg-7 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn"
@@ -24,50 +25,52 @@
                     
                     <div class="dropdown-divider"></div>
                    
-                    <div class="form-group row">
+                    <div class="form-group row p-1">
                         <!-- gsc -->
-                        <div class="form-group col">
+                        <div class="form-group col form-control-sm">
                             <label for="gsc">GSC</label>
                             <input type="text" class="form-control" name="gsc" id="gsc"
-                                aria-describedby="gsc" />
-                            <div id="validacion_gsc" class="text-danger form-group col"></div> 
-                            <!--a futuro implementar validación de datos-->
+                                aria-describedby="gsc" 
+                                data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="top" 
+                                data-bs-content="Ingrese manualmente el número de GSC"/>
                         </div>
         
                         <!-- ap -->
-                        <div class="form-group col">
+                        <div class="form-group col form-control-sm">
                             <label for="ap">AP</label>
-                            <input type="text" class="form-control" name="ap" id="ap" aria-describedby="ap" />
-                            <div id="validacion_ap" class="text-danger form-group col"></div> 
-                            <!--a futuro implementar validación de datos-->
+                            <input type="text" class="form-control" name="ap" id="ap" aria-describedby="ap" 
+                            data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="top" 
+                            data-bs-content="Ingrese manualmente el número de AP"/>
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row p-1">
                         <!--Socio -->
-                        <div class="form-group col">
+                        <div class="form-group col form-control-sm">
                             <label for="socio">Socio</label>
-                            <input type="text" class="form-control" name="socio" id="socio" aria-describedby="socio" />
-                            <div id="validacion_socio" class="text-danger form-group col"></div>
-                            <!--a futuro implementar validación de datos-->
+                            <input type="text" class="form-control" name="socio" id="socio" aria-describedby="socio" 
+                            data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="top" 
+                            data-bs-content="Ingrese manualmente el número de Socio"/>
                         </div>
                     
                         <!-- fecha -->
-                        <div class="form-group col">
+                        <div class="form-group col form-control-sm">
                             <label for="fecha">Fecha</label>
                             <input type="date" class="form-control" name="fecha" id="fecha" aria-describedby="fecha" />
-                            <div id="validacion_fecha" class="text-danger form-group col"></div>
-                            <!--a futuro implementar validación de datos-->
+                            
                         </div>
                     </div>
-                       
+                    
                     <!-- prestador -->
-                    <%- include("partials/prestador") -%>
+                    <div class="form-group row mt-3 p-1 justify-content-center">
                     
+                        <%- include("partials/prestador") -%>
+
+                    </div>
                     
-                    <div class="form-group row mt-3">
+                    <div class="form-group row mt-3 p-1">
                         <!-- Auditor -->
-                        <div class="form-group col">
+                        <div class="form-group col form-control-sm">
                             <label for="auditor">Auditor</label>
                                 <select class="form-control" name="auditor" id="auditor" >
                                     
@@ -80,12 +83,11 @@
                                     <% } %> 
                                         
                                 </select>
-                            <div id="validacion_auditor" class="text-danger form-group col"></div> 
-                            <!--a futuro implementar validación de datos-->
+                           
                         </div>
         
                         <!-- Analista -->
-                        <div class="form-group col">
+                        <div class="form-group col form-control-sm">
                             <label for="analista">Analista</label>
                                 <select class="form-control" name="analista" id="analista" >
                                     
@@ -98,39 +100,28 @@
                                     <% } %> 
                                         
                                 </select>
-                            <div id="validacion_analista" class="text-danger form-group col"></div> 
-                            <!--a futuro implementar validación de datos-->
                         </div>
                     </div>
-
-                    <div class="form-group row">
+                    <div class="form-group row p-1">
                         <!-- observacion/notas -->
-                        <div class="form-group col">
+                        <div class="form-group col form-control-sm">
                             <label for="nota">Observación</label>
-                            <textarea class="form-control" aria-label="nota" name="nota" id="nota" placeholder="Anote aquí lo conversado con el prestador"></textarea>
-                            <div id="validacion_nota" class="text-danger form-group col"></div>
-                            <!--a futuro implementar validación de datos-->
+                            <textarea class="form-control" aria-label="nota" name="nota" id="nota"
+                                placeholder="Anote aquí lo conversado con el prestador"
+                                data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="bottom" 
+                                data-bs-content="Comente brevemente lo conversado con el Prestador"></textarea>
+                            
                         </div>
                     </div>
                     
-                    <div class="form-group row bg-light mt-3 p-3 justify-content-center">
-                        <!-- medicamento -->
-                        <div class="form-group col-auto ">
-                            <a href="/gestiones/crearGestion">
-                                <button type="button" class="btn btn-outline-info btn-sm m-auto" value="1">
-                                    <i class="fas fa-prescription-bottle-alt"></i> Medicamento
-                                </button>
-                            </a>
-                        </div>
-
+                    
+                    <div class="form-group row mt-3 p-1 justify-content-center">
+                        <!-- medicamento -->                    
+                        <%- include("partials/medicamento") -%>
+                        
                         <!-- protesis -->
-                        <div class="form-group col-auto">
-                            <a href="/gestiones/crearGestion">
-                                <button type="button" class="btn btn-outline-info btn-sm m-auto" value="1">
-                                    <i class="fas fa-wheelchair"></i> Prótesis
-                                </button>
-                            </a>
-                        </div>
+                        <%- include("partials/protesis") -%>
+
                     </div>
                     
                     <!-- boton enviar -->
@@ -144,10 +135,26 @@
             </div>
         </section>
     <!--footer-->
-        <footer class="">
-            <%- include("partials/footer") -%>
-        </footer>
+    <footer class="align-items-end w-100">
+        <%- include("partials/footer") -%>
+    </footer>
 
+    <script>
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+            var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                return new bootstrap.Popover(popoverTriggerEl)
+            })
+        var popover = new bootstrap.Popover(document.querySelector('.popover-dismiss'), {
+                trigger: 'focus'
+            })
+
+        var myModal = document.getElementById('myModal')
+        var myInput = document.getElementById('myInput')
+
+            myModal.addEventListener('shown.bs.modal', function () {
+                myInput.focus()
+            })
+    </script>
         
     </body>
 </html>

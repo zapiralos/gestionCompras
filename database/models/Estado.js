@@ -22,10 +22,12 @@ module.exports = function(sequelize, dataTypes){
     let Estado = sequelize.define(alias, cols, config);
 
     Estado.associate = function(models) {
-        Estado.belongsTo(models.Gestion, {
-            as: "gestionEstado", 
+        //un estado de varias medicaciones
+        Estado.hasMany(models.Medicamento, {
+            as: "estadoMedicamentos", 
             foreignKey: "id_estado"
         });
+        
     }
 
     return Estado;

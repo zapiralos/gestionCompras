@@ -4,42 +4,44 @@
   <!--head-->
   <%- include("partials/head", {title: "Gestión de Compras®" }) %>
   
-  <body class="">
-    <!--header-->
-    <%- include("partials/header") -%>
-
+  <body class="position-relative vh-100">
+    <div class="position-absolute top-0 w-100">
+      <%- include("partials/header") -%>
+    </div>
     <!--container-->
-    <main class="container d-flex flex-wrap animate__animated animate__zoomIn">
-      <div class="content  d-flex m-auto w-100 clear-top">
-        <div class="card m-auto d-flex shadow-sm p-3 mb-5 bg-body rounded">
-          <div class="card-body d-flex align-items-center">
-              <ul class="m-0 p-0">
-                <li class="boton_home mb-3">
-                  <a href="/gestiones/crear">
-                    <button type="button" class="btn btn-outline-info w-100">
-                      <i class="far fa-file-alt"></i> Crear Gestión
-                    </button>
-                  </a>
-                </li>
-                <li class="boton_home mt-3">
-                  <a href="/verGestion">
-                    <a href="/gestiones/crearGestion">
-                      <button type="button" class="btn btn-outline-info">
-                        <i class="fas fa-search"></i> Buscar Gestión
-                      </button>
-                    </a>
-                </li>
-              </ul>
+    
+        <main class="animate__animated animate__zoomIn
+          position-absolute top-50 start-50 translate-middle">
+          <div class="content  d-flex m-auto w-100 clear-top">
+            <div class="card m-auto d-flex shadow-sm p-3 bg-body rounded">
+              <div class="card-body d-flex align-items-center">
+                  <ul class="m-0 p-0">
+                    <li class="boton_home mb-3">
+                      <a href="/gestiones/crear">
+                        <button type="button" class="btn btn-outline-info w-100">
+                          <i class="far fa-file-alt"></i> Crear Gestión
+                        </button>
+                      </a>
+                    </li>
+                    <li class="boton_home mt-3">
+                      <a href="/verGestion">
+                        <a href="/gestiones/crearGestion">
+                          <button type="button" class="btn btn-outline-info">
+                            <i class="fas fa-search"></i> Buscar Gestión
+                          </button>
+                        </a>
+                    </li>
+                  </ul>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </main>
+        </main>
+      
+    <!--footer-->
+    <div class="position-absolute bottom-0 w-100"> 
+      <%- include("partials/footer") -%>
+    </div>
 
-    
-    
   </body>
-  <!--footer-->
-  <footer class="">
-    <%- include("partials/footer") -%>
-  </footer>
+  
 </html>

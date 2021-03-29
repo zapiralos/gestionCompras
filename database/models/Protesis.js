@@ -9,6 +9,9 @@ module.exports = function(sequelize, dataTypes){
             primaryKey: true,
             autoIncrement: true
         },
+        protesis: {
+            type: dataTypes.STRING(100)
+        },
         gestion_proveedor: {
             type: dataTypes.DECIMAL(10,2)
         },
@@ -35,8 +38,9 @@ module.exports = function(sequelize, dataTypes){
             as: "gestionPro", 
             foreignKey: "id_protesis"
         });
-        Protesis.hasMany(models.Proveedor, {
-            as: "proveedores", 
+        //protesis de un proveedor
+        Protesis.belongsTo(models.Proveedor, {
+            as: "proveedor", 
             foreignKey: "id_proveedor"
         });
     }

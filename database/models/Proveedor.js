@@ -11,6 +11,12 @@ module.exports = function(sequelize, dataTypes){
         },
         nombre: {
             type: dataTypes.STRING(100)
+        },
+        telefono: {
+            type: dataTypes.INTEGER(11)
+        },
+        email: {
+            type: dataTypes.STRING(100)
         }
     }
 
@@ -22,11 +28,11 @@ module.exports = function(sequelize, dataTypes){
     let Proveedor = sequelize.define(alias, cols, config);
 
     Proveedor.associate = function(models) {
-        Proveedor.belongsTo(models.Protesis, {
-            as: "protesisProv", 
+        //un proveedor de varias protesis
+        Proveedor.hasMany(models.Protesis, {
+            as: "protesisProveedor", 
             foreignKey: "id_proveedor"
         });
-
     }
     
     return Proveedor;

@@ -20,8 +20,10 @@ let gestionesController = {
 
        const analista = await Analista.findAll();
        const auditor = await Auditor.findAll();
+       const estado = await Estado.findAll();
+       const proveedor = await Proveedor.findAll();
        
-       return res.render("crearGestion", { analista , auditor });
+       return res.render("crearGestion", { analista , auditor , estado , proveedor });
     },
 
     guardadoGestion: async (req, res) => {
@@ -34,29 +36,30 @@ let gestionesController = {
                 matricula: req.body.matricula,
                 num_prestador_osde: req.body.num_prestador_osde,
                 rating: req.body.rating,
-                especialidad: req.body.especialidad
+                especialidad: req.body.especialidad,
+                cuil: req.body.cuil
                 })
             console.log(prestador);
             
             /* creador de medicamentos */
             let medicamento = await Medicamento.create({
                 
-                nom_med: req.body.nombre_med, 
+                nom_med: req.body.nom_med, 
                 nom_gen_med: req.body.nom_gen_med, 
-                valor_med: req.body.med,
-                valor_prop: req.body.prop,
-                valor_noacep: req.body.noacep,
-                valor_prop_sinstock: req.body.sinstock,
+                valor_med: req.body.valor_med,
+                valor_prop: req.body.valor_prop,
+                valor_noacep: req.body.valor_noacep,
+                valor_prop_sinstock: req.body.valor_prop_sinstock,
                 cantidad: req.body.cantidad,
-                id_estado: req.body.estado
+                id_estado: req.body.estado,
+                autorizado: req.body.autorizado
                 })
             console.log(medicamento);
 
             /* creador de proveedor */
             let proveedor = await Proveedor.create({
                 
-                nom_proveedor: req.body.nom_proveedor,
-                cuit: req.body.cuit,
+                nombre: req.body.nom_proveedor,
                 telefono: req.body.telefono,
                 email: req.body.email
                 })
@@ -65,6 +68,7 @@ let gestionesController = {
             /* creador de protesis */
             let protesis = await Protesis.create({
                 
+                protesis: req.body.protesis,
                 gestion_proveedor: req.body.proveedor,
                 gestion_medico: req.body.medico,
                 gestion_prop_noaceptada: req.body.noaceptada,
@@ -93,6 +97,7 @@ let gestionesController = {
                 falloCallback (error);
             }
         
+            res.redirect("/");
     },
 
     vista: async (req, res) => {

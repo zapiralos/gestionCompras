@@ -29,11 +29,7 @@ body {
   background: linear-gradient(27deg, rgba(18,38,170,1) 0%, rgba(38,195,255,1) 100%);
 }
 
-.container {
-  /*--en la funcion calc del height se resta 40 del header y 40 del footer--*/
-  height: calc(100vh - 40px - 40px);
-  margin: auto;
-}
+
 
 .desarrollo {
   font-size: x-small;
@@ -69,4 +65,8 @@ ul li {
 
 .prestador {
   margin: auto;
+}
+
+.proveedor {
+  padding: .25rem .5rem;
 }

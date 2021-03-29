@@ -32,7 +32,11 @@ module.exports = function(sequelize, dataTypes){
         },
         id_estado: {
             type: dataTypes.INTEGER(11)
+        },
+        autorizado: {
+            type: dataTypes.INTEGER(11)
         }
+
     }
 
     let config = {
@@ -47,10 +51,12 @@ module.exports = function(sequelize, dataTypes){
             as: "gestionMed", 
             foreignKey: "id_medicamento"
         });
-        Medicamento.hasMany(models.Estado, {
-            as: "estados", 
-            foreignKey: "id_estados"
+        //una medicación un estado
+        Medicamento.belongsTo(models.Estado, {
+            as: "estado", 
+            foreignKey: "id_estado"
         });
+        
         
     }
 

@@ -26,7 +26,10 @@ module.exports = function(sequelize, dataTypes){
         },
         especialidad: {
             type: dataTypes.STRING(15)
-        } 
+        },
+        cuil: {
+            type: dataTypes.INTEGER(11)
+        }
     }
 
     let config = {
