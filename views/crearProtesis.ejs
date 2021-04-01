@@ -15,11 +15,11 @@
             <div class="row">
                 <form
                     class="col-xl-7 col-lg-7 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn"
-                    action="/gestiones/crear" method="POST" id="form">
+                    action="/gestiones/crearProtesis" method="POST" id="form">
 
                     <div class="col-12">
                         <h5 class="text-secondary">
-                            <i class="fas fa-border-all"></i> Crear Gestión
+                            <i class="fas fa-wheelchair"></i> Crear Gestión de Prótesis
                         </h5>
                     </div>
                     
@@ -117,18 +117,16 @@
                     
                     <div class="form-group row mt-3 p-1 justify-content-center">
                         <!-- medicamento -->                    
-                        <%- include("partials/medicamento") -%>
-                        
-                        <!-- protesis -->
                         <%- include("partials/protesis") -%>
-
                     </div>
-                    
+                    <div class="dropdown-divider"></div>
                     <!-- boton enviar -->
-                    <div class="col-12 d-flex justify-content-center mt-2">
-                        <button type="submit" class="btn btn-info mt-3 mb-1 text-white">
-                           Crear!
-                        </button>
+                    
+                    <div class="col-12 d-flex justify-content-center mt-3">
+                        <a class="btn btn-secondary text-white m-1" href="/" role="button">volver</a>
+                        <button type="submit" class="btn btn-info text-white m-1">
+                            Crear!
+                         </button>
                     </div>
                     
                 </form>

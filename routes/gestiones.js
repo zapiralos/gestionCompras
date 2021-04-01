@@ -3,13 +3,15 @@ var router = express.Router();
 var gestionesController = require("../controllers/gestionesController")
 
 
-/* Creación de gestiones */
-router.get("/crear" , gestionesController.crear);
+/* Creación de gestion de medicamentos*/
+router.get("/crearMedicamento" , gestionesController.medicamentos);
 
-router.post("/crear" , gestionesController.guardadoGestion);
+router.post("/crearMedicamento" , gestionesController.guardarMedicamento);
 
+/* Creación de gestion de protesis*/
+router.get("/crearProtesis" , gestionesController.protesis);
 
-
+router.post("/crearProtesis" , gestionesController.guardarProtesis); 
 
 
 /* vista de gestion */

@@ -1,72 +1,101 @@
-<div class="form-group col-auto">
-    <div class="prestador form-group col-12 mt-1">
+<div class="modal-header">
+    <h5 class="modal-title" id="prestadorTitle">
+        <i class="fas fa-wheelchair"></i> Prótesis
+    </h5>
+</div>
+<div class="modal-body">
+    <div class="form-group row">
+        <!-- protesis -->
+        <div class="form-group col-5 form-control-sm">
+            <label for="protesis">Prótesis</label>
+            <input
+                type="text"
+                class="form-control"
+                name="protesis"
+                id="protesis"
+                aria-describedby="protesis"
+            />
+        </div>
 
-        <button type="button" class="btn btn-outline-info btn-sm m-auto">
-            <i class="fas fa-wheelchair"></i> Prótesis
-        </button>
+        <!-- Proveedor -->
+        <div class="form-group col-7 form-control-sm p-0">
+            <label for="protesis">Proveedor</label>
+            <div class="input-group proveedor">
+                <select
+                    class="form-select"
+                    id="proveedor"
+                    name="proveedor"
+                    aria-label="Seleccione Proveedor"
+                >
+                    <option selected>Seleccione...</option>
+                    <% for (let i=0; i < proveedor.length; i++) { %>
+                    <option value="<%= proveedor[i].id %>">
+                        <%= proveedor[i].nombre %>
+                    </option>
+                    <% } %>
+                </select>
+                <button class="btn btn-outline-secondary" type="button"
+                data-bs-trigger="focus"
+                data-bs-toggle="popover"
+                data-bs-placement="right"
+                data-bs-content="permitiria agregar nuevo proveedor, proximamente..."
+                >
+                    <i class="fas fa-user-plus"></i>
+                </button>
+            </div>
+        </div>
     </div>
-    <div class="modal-content mt-1">
-        <div class="modal-header">
-            <h5 class="modal-title" id="prestadorTitle">
-                <i class="fas fa-wheelchair"></i> Prótesis
-            </h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+    <div class="form-group row mt-3">
+        <!-- gestion proveedor -->
+        <div class="form-group col form-control-sm">
+            <label for="gestion_proveedor">Gestión de Compras</label>
+            <input
+                type="text"
+                class="form-control"
+                name="gestion_proveedor"
+                id="gestion_proveedor"
+                placeholder="$"
+                aria-describedby="gestion_proveedor"
+                data-bs-trigger="focus"
+                data-bs-toggle="popover"
+                data-bs-placement="top"
+                data-bs-content="Descuento conseguido con el proveedor"
+            />
         </div>
-        <div class="modal-body">
-            <div class="form-group row">
-                <!-- protesis -->
-                <div class="form-group col-5 form-control-sm">
-                    <label for="protesis">Prótesis</label>
-                    <input type="text" class="form-control" name="protesis" id="protesis" aria-describedby="protesis" />
-                </div>
-
-                <!-- Proveedor -->
-                <div class="form-group col-7 form-control-sm p-0">
-                    <label for="protesis">Proveedor</label>
-                    <div class="input-group proveedor">
-                        <select class="form-select" id="proveedor" name="proveedor" aria-label="Seleccione Proveedor">
-                            <option selected>Seleccione...</option>
-                            <% for (let i=0; i < proveedor.length; i++) { %>
-                                <option value="<%= proveedor[i].id %>">
-                                    <%= proveedor[i].nombre %>
-                                </option>
-                                <% } %>
-                        </select>
-                        <button class="btn btn-outline-secondary" type="button">
-                            <i class="fas fa-user-plus"></i> </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group row mt-3">
-                
-                <!-- gestion proveedor -->
-                <div class="form-group col form-control-sm">
-                    <label for="gestion_proveedor">Gestión de Compras</label>
-                    <input type="text" class="form-control" name="gestion_proveedor" id="gestion_proveedor"
-                        placeholder="$" aria-describedby="gestion_proveedor" />
-                    <div class="form-text">Descuento conseguido con el proveedor</div>
-                </div>
-                <!-- gestion_auditoria -->
-                <div class="form-group col form-control-sm">
-                    <label for="gestion_medico">Gestión Médica</label>
-                    <input type="text" class="form-control" name="gestion_medico" id="gestion_medico" placeholder="$"
-                        aria-describedby="gestion_medico" />
-                    <div class="form-text">Valor ahorrado - Diferencia entre lo Solicitado</div>
-                </div>
-                <!-- gestion con el prestador SIN ACEPTACION -->
-                <div class="form-group col form-control-sm">
-                    <label for="gestion_prop_noaceptada ">Propuesta sin Aceptación</label>
-                    <input type="text" class="form-control" name="gestion_prop_noaceptada" id="gestion_prop_noaceptada"
-                        placeholder="$" aria-describedby="gestion_prop_noaceptada" />
-                    <div class="form-text">Valor NO ahorrado - No aceptación del Prestador</div>
-                </div>
-
-            </div>
+        <!-- gestion_auditoria -->
+        <div class="form-group col form-control-sm">
+            <label for="gestion_medico">Gestión Médica</label>
+            <input
+                type="text"
+                class="form-control"
+                name="gestion_medico"
+                id="gestion_medico"
+                placeholder="$"
+                aria-describedby="gestion_medico"
+                data-bs-trigger="focus"
+                data-bs-toggle="popover"
+                data-bs-placement="top"
+                data-bs-content="Valor ahorrado - Diferencia entre lo Solicitado"
+            />
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
-            <button type="button" class="btn btn-primary">Seleccionar</button>
+        <!-- gestion con el prestador SIN ACEPTACION -->
+        <div class="form-group col form-control-sm">
+            <label for="gestion_prop_noaceptada "
+                >Propuesta sin Aceptación</label
+            >
+            <input
+                type="text"
+                class="form-control"
+                name="gestion_prop_noaceptada"
+                id="gestion_prop_noaceptada"
+                placeholder="$"
+                aria-describedby="gestion_prop_noaceptada"
+                data-bs-trigger="focus"
+                data-bs-toggle="popover"
+                data-bs-placement="top"
+                data-bs-content="Valor NO ahorrado - No aceptación del Prestador"
+            />
         </div>
     </div>
 </div>

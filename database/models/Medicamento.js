@@ -15,6 +15,9 @@ module.exports = function(sequelize, dataTypes){
         nom_gen_med: {
             type: dataTypes.STRING(100)
         },
+        nom_med_ofr: {
+            type: dataTypes.STRING(100)
+        },
         valor_med: {
             type: dataTypes.DECIMAL(10,2)
         },

@@ -1,107 +1,160 @@
-<div class="form-group row col-auto">
-    <div class="medicamento form-group col-12 mt-1">
 
-        <button type="button" class="btn btn-outline-info btn-sm m-auto">
+    <div class="modal-header">
+        <h5 class="modal-title" id="prestadorTitle">
             <i class="fas fa-prescription-bottle-alt"></i> Medicamento
+        </h5>
+        
+    </div>
+    <div class="modal-body">
+        <div class="form-group row">
+            <!-- nombre comercial solicitado-->
+            <div class="form-group col form-control-sm">
+                <label for="nom_med">Medicamento Solicitado</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    name="nom_med"
+                    id="nom_med"
+                    aria-describedby="nom_med"
+                />
+            </div>
+
+            <!-- nombre generico -->
+            <div class="form-group col form-control-sm">
+                <label for="nom_gen_med">Genérico</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    name="nom_gen_med"
+                    id="nom_gen_med"
+                    aria-describedby="nom_gen_med"
+                />
+            </div>
+
+            <!-- nombre comercial ofrecido-->
+            <div class="form-group col form-control-sm">
+                <label for="nom_med_ofr">Medicamento Ofrecido</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    name="nom_med_ofr"
+                    id="nom_med_ofr"
+                    aria-describedby="nom_med_ofr"
+                />
+            </div>
+        </div>
+        <div class="form-group row">
+            <!-- estado -->
+            <div class="form-group col form-control-sm">
+                <label for="estado">Estado</label>
+                <select class="form-control" name="estado" id="estado">
+                    <option selected>Seleccione...</option>
+
+                    <% for (let i=0; i < estado.length; i++) { %>
+                    <option value="<%= estado[i].id %>">
+                        <%= estado[i].estado %>
+                    </option>
+                    <% } %>
+                </select>
+            </div>
+            <!-- cantidad -->
+            <div class="form-group col form-control-sm">
+                <label for="cantidad">Cantidad</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    name="cantidad"
+                    id="cantidad"
+                    aria-describedby="cantidad"
+                />
+            </div>
+            <!-- meses autorizados -->
+            <div class="form-group col form-control-sm">
+                <label for="autorizado">Meses Autorizados</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    name="autorizado"
+                    id="autorizado"
+                    aria-describedby="autorizado"
+                />
+            </div>
+        </div>
+
+        <div class="form-group row mt-3 d-flex align-items-start">
+            <!-- valor_med -->
+            <div class="form-group col-3 form-control-sm">
+                <label for="valor_med">Análisis de Compras</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    name="valor_med"
+                    id="valor_med"
+                    placeholder="$"
+                    aria-describedby="valor_med"
+                    data-bs-trigger="focus"
+                    data-bs-toggle="popover"
+                    data-bs-placement="top"
+                    data-bs-content="Análisis por primera vez de medicamento que no se solicita marca"
+                />
+            </div>
+
+            <!-- valor_prop -->
+            <div class="form-group col-3 form-control-sm">
+                <label for="valor_prop">Gestión c/Prestador</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    name="valor_prop"
+                    id="valor_prop"
+                    placeholder="$"
+                    aria-describedby="valor_prop"
+                    data-bs-trigger="focus"
+                    data-bs-toggle="popover"
+                    data-bs-placement="top"
+                    data-bs-content="Valor en diferencia a lo solicitado y propuesto de marcas"
+                />
+            </div>
+            <!-- valor_noacep -->
+            <div class="form-group col-3 form-control-sm">
+                <label for="valor_noacep">Sin aceptación</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    name="valor_noacep"
+                    id="valor_noacep"
+                    placeholder="$"
+                    aria-describedby="valor_noacep"
+                    data-bs-trigger="focus"
+                    data-bs-toggle="popover"
+                    data-bs-placement="top"
+                    data-bs-content="Propuesta de medicamento SIN aceptación del Profesional solicitante"
+                />
+            </div>
+
+            <!-- valor_prop_sinstock -->
+            <div class="form-group col-3 form-control-sm">
+                <label for="valor_prop_sinstock">Sin Stock</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    name="valor_prop_sinstock"
+                    id="valor_prop_sinstock"
+                    placeholder="$"
+                    aria-describedby="valor_prop_sinstock"
+                    data-bs-trigger="focus"
+                    data-bs-toggle="popover"
+                    data-bs-placement="top"
+                    data-bs-content="Medicamento aprobado por el Prestador pero no se encuentra en Stock"
+                />
+            </div>
+        </div>
+
+        <!--implementar busqueda desde tabla de medicamentos osde-->
+        <button type="button" class="btn btn-outline-info btn-sm mt-3 button">
+            <i class="fas fa-search"></i> Búsqueda de Medicamento en bases de
+            OSDE
         </button>
+        <div class="form-text">...proximamente!</div>
     </div>
-    <div class="modal-content mt-1 ">
-        <div class="modal-header">
-            <h5 class="modal-title" id="prestadorTitle">
-                <i class="fas fa-prescription-bottle-alt"></i> Medicamento
-            </h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <div class="form-group row">
-                <!-- nombre comercial -->
-                <div class="form-group col form-control-sm">
-                    <label for="nom_med">Nombre Comercial</label>
-                    <input type="text" class="form-control" name="nom_med" id="nom_med" aria-describedby="nom_med" />
-                </div>
 
-                <!-- nombre generico -->
-                <div class="form-group col form-control-sm">
-                    <label for="nom_gen_med">Genérico</label>
-                    <input type="text" class="form-control" name="nom_gen_med" id="nom_gen_med" aria-describedby="nom_gen_med" />
-                </div>
-            </div>
-            <div class="form-group row">
-                <!-- estado -->
-                <div class="form-group col form-control-sm">
-                    <label for="estado">Estado</label>
-                    <select class="form-control" name="estado" id="estado">
-                
-                        <option selected>Seleccione...</option>
-                
-                        <% for (let i=0; i < estado.length; i++) { %>
-                            <option value="<%= estado[i].id %>">
-                                <%= estado[i].estado %>
-                            </option>
-                            <% } %>
-                
-                    </select>
-                </div>
-                <!-- cantidad -->
-                <div class="form-group col form-control-sm">
-                    <label for="cantidad">Cantidad</label>
-                    <input type="text" class="form-control" name="cantidad" id="cantidad" aria-describedby="cantidad" />
-                </div>
-                <!-- meses autorizados -->
-                <div class="form-group col form-control-sm">
-                    <label for="autorizado">Meses Autorizados</label>
-                    <input type="text" class="form-control" name="autorizado" id="autorizado" aria-describedby="autorizado" />
-                </div>
-                
-            </div>
-
-            <div class="form-group row mt-3 d-flex align-items-start">
-                <!-- valor_med -->
-                <div class="form-group col-3 form-control-sm">
-                    <label for="valor_med">Análisis de Compras</label>
-                    <input type="text" class="form-control" name="valor_med" id="valor_med"
-                        placeholder="$" aria-describedby="valor_med" 
-                        data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="top" 
-                        data-bs-content="Análisis por primera vez de medicamento que no se solicita marca"/>
-                </div>
-
-                <!-- valor_prop -->
-                <div class="form-group col-3 form-control-sm">
-                    <label for="valor_prop">Gestión c/Prestador</label>
-                    <input type="text" class="form-control" name="valor_prop" id="valor_prop"
-                        placeholder="$" aria-describedby="valor_prop" 
-                        data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="top" 
-                        data-bs-content="Valor en diferencia a lo solicitado y propuesto de marcas"/>
-                </div>
-                <!-- valor_noacep -->
-                <div class="form-group col-3 form-control-sm">
-                    <label for="valor_noacep">Sin aceptación</label>
-                    <input type="text" class="form-control" name="valor_noacep" id="valor_noacep" 
-                        placeholder="$" aria-describedby="valor_noacep" 
-                        data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="top" 
-                        data-bs-content="Propuesta de medicamento SIN aceptación del Profesional solicitante"/>
-                </div>
-                
-                <!-- valor_prop_sinstock -->
-                <div class="form-group col-3 form-control-sm">
-                    <label for="valor_prop_sinstock">Sin Stock</label>
-                    <input type="text" class="form-control" name="valor_prop_sinstock" id="valor_prop_sinstock" 
-                        placeholder="$" aria-describedby="valor_prop_sinstock"
-                        data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="top" 
-                        data-bs-content="Medicamento aprobado por el Prestador pero no se encuentra en Stock"/>
-                </div>
-            </div>
-
-            <!--implementar busqueda desde tabla de medicamentos osde-->
-            <button type="button" class="btn btn-outline-info btn-sm mt-3 button">
-                <i class="fas fa-search"></i> Búsqueda de Medicamento en bases de OSDE
-            </button>
-            <div class="form-text">...proximamente!</div>
-            
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
-            <button type="button" class="btn btn-primary">Seleccionar</button>
-        </div>
-    </div>
-</div>
