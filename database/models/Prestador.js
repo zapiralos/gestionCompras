@@ -39,10 +39,11 @@ module.exports = function(sequelize, dataTypes){
 
     let Prestador = sequelize.define(alias, cols, config);
 
+    // un prestador puede tener varias gestiones
     Prestador.associate = function(models) {
-        Prestador.belongsTo(models.Gestion, {
-            as: "gestionPrestador", 
-            foreignKey: "id_prestador"
+        Prestador.hasMany(models.Gestion, {
+            as: "gestionPrestador",
+            foreignKey: "id_prestador",
         });
     }    
 

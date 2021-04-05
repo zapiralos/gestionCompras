@@ -49,20 +49,20 @@ module.exports = function(sequelize, dataTypes){
     let Gestion = sequelize.define(alias, cols, config);
 
     Gestion.associate = function(models) {
-        //una gestión a varios medicamentos
+        //una gestión puede tener varios medicamentos
         Gestion.hasMany(models.Medicamento, {
             as: "medicamentos", 
             foreignKey: "id_medicamento"
         });
-        //una gestión a varias protesis
+        //una gestión puede tener varias prótesis
         Gestion.hasMany(models.Protesis, {
             as: "protesis", 
             foreignKey: "id_protesis"
         });
-        //una gestión a varios prestadores
-        Gestion.hasMany(models.Prestador, {
-            as: "prestadores", 
-            foreignKey: "id_prestador"
+        //una gestión a un prestador
+        Gestion.belongsTo(models.Prestador, {
+            as: "prestador",
+            foreignKey: "id_prestador",
         });
         //una gestión a un auditor
         Gestion.belongsTo(models.Auditor, {

@@ -17,12 +17,22 @@ let {
 let gestionesController = {
 
     medicamentos: async (req, res) => {
+        try {
+            const analista = await Analista.findAll();
+            const auditor = await Auditor.findAll();
+            const estado = await Estado.findAll();
+            const prestador = await Prestador.findAll();
 
-        const analista = await Analista.findAll();
-        const auditor = await Auditor.findAll();
-        const estado = await Estado.findAll();
+            return res.render("crearMedicamento", {
+                analista,
+                auditor,
+                estado,
+                prestador,
+            });
+        } catch (error) {
+            return res.send(error);
+        }
         
-        return res.render("crearMedicamento", { analista , auditor , estado  });
     },
 
     guardarMedicamento: async (req, res) => {
@@ -86,6 +96,7 @@ let gestionesController = {
         const auditor = await Auditor.findAll();
         const proveedor = await Proveedor.findAll();
         
+
         return res.render("crearProtesis", { analista , auditor , proveedor });
      },
 
@@ -155,19 +166,24 @@ let gestionesController = {
 
 
     vista: async (req, res) => {
-        // try {
-        //     const gestion = await Gestion.findBypk(req.params.id, {
-        //         include: [
-        //             { association: "medicamentos"}, 
-        //             { association: "protesis"},
-        //             { association: "prestadores"},
-        //             { association: "auditor"},
-        //             { association: "analista"}
-        //         ]
-        //     })
-        // } catch (error) {
-        //     return res.send(error);
-        // }
+        try {
+            const gestion = await Gestion.findBypk(req.params.id, {
+                include: [
+                    { association: "medicamentos"}, 
+                    { association: "protesis"},
+                    { association: "prestadores"},
+                    { association: "auditor"},
+                    { association: "analista"}
+                ]
+            })
+
+            return res.render("verGestion", {
+               gestion
+            });
+
+        } catch (error) {
+            return res.send(error);
+        }
     } 
 
 

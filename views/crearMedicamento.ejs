@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!--head-->
-<%- include("partials/head", {title: "Gestión de Compras" }) -%>
+    <!--head-->
+    <%- include("partials/head", {title: "Gestión de Compras" }) -%>
 
     <body class="d-flex align-items-between flex-wrap">
-
         <!--header-->
         <div class="align-items-start w-100">
             <%- include("partials/header") -%>
@@ -15,32 +13,52 @@
             <div class="row">
                 <form
                     class="col-xl-7 col-lg-7 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn"
-                    action="/gestiones/crearMedicamento" method="POST" id="form">
-
+                    action="/gestiones/crearMedicamento"
+                    method="POST"
+                    id="form"
+                >
                     <div class="col-12">
                         <h5 class="text-secondary">
-                            <i class="fas fa-prescription-bottle-alt"></i> Crear Gestión de Medicamento
+                            <i class="fas fa-prescription-bottle-alt"></i> Crear
+                            Gestión de Medicamento
                         </h5>
                     </div>
-                    
+
                     <div class="dropdown-divider"></div>
-                   
+
                     <div class="form-group row p-1">
                         <!-- gsc -->
                         <div class="form-group col form-control-sm">
                             <label for="gsc">GSC</label>
-                            <input type="text" class="form-control" name="gsc" id="gsc"
-                                aria-describedby="gsc" 
-                                data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="top" 
-                                data-bs-content="Ingrese manualmente el número de GSC" required/>
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="gsc"
+                                id="gsc"
+                                aria-describedby="gsc"
+                                data-bs-trigger="focus"
+                                data-bs-toggle="popover"
+                                data-bs-placement="top"
+                                data-bs-content="Ingrese manualmente el número de GSC"
+                                required
+                            />
                         </div>
-        
+
                         <!-- ap -->
                         <div class="form-group col form-control-sm">
                             <label for="ap">AP</label>
-                            <input type="text" class="form-control" name="ap" id="ap" aria-describedby="ap" 
-                            data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="top" 
-                            data-bs-content="Ingrese manualmente el número de AP" required/>
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="ap"
+                                id="ap"
+                                aria-describedby="ap"
+                                data-bs-trigger="focus"
+                                data-bs-toggle="popover"
+                                data-bs-placement="top"
+                                data-bs-content="Ingrese manualmente el número de AP"
+                                required
+                            />
                         </div>
                     </div>
 
@@ -48,111 +66,134 @@
                         <!--Socio -->
                         <div class="form-group col form-control-sm">
                             <label for="socio">Socio</label>
-                            <input type="text" class="form-control" name="socio" id="socio" aria-describedby="socio" 
-                            data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="top" 
-                            data-bs-content="Ingrese manualmente el número de Socio"/>
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="socio"
+                                id="socio"
+                                aria-describedby="socio"
+                                data-bs-trigger="focus"
+                                data-bs-toggle="popover"
+                                data-bs-placement="top"
+                                data-bs-content="Ingrese manualmente el número de Socio"
+                            />
                         </div>
-                    
+
                         <!-- fecha -->
                         <div class="form-group col form-control-sm">
                             <label for="fecha">Fecha</label>
-                            <input type="date" class="form-control" name="fecha" id="fecha" aria-describedby="fecha" />
-                            
+                            <input
+                                type="date"
+                                class="form-control"
+                                name="fecha"
+                                id="fecha"
+                                aria-describedby="fecha"
+                            />
                         </div>
                     </div>
-                    
-                    <!-- prestador -->
-                    <div class="form-group row mt-3 p-1 justify-content-center">
-                    
-                        <%- include("partials/prestador") -%>
 
-                    </div>
-                    
-                    <div class="form-group row mt-3 p-1">
+                    <div class="form-group row p-1">
                         <!-- Auditor -->
                         <div class="form-group col form-control-sm">
                             <label for="auditor">Auditor</label>
-                                <select class="form-control" name="auditor" id="auditor" >
-                                    
-                                    <option selected>Seleccione...</option>
-                                    
-                                    <% for (let i= 0; i < auditor.length; i++) { %> 
-                                        <option value="<%= auditor[i].id %>">
-                                            <%= auditor[i].nombre %> <%= auditor[i].apellido %>
-                                        </option>
-                                    <% } %> 
-                                        
-                                </select>
-                           
+                            <select
+                                class="form-control"
+                                name="auditor"
+                                id="auditor"
+                            >
+                                <option selected>Seleccione...</option>
+
+                                <% for (let i= 0; i < auditor.length; i++) { %>
+                                <option value="<%= auditor[i].id %>">
+                                    <%= auditor[i].nombre %> <%=
+                                    auditor[i].apellido %>
+                                </option>
+                                <% } %>
+                            </select>
                         </div>
-        
+
                         <!-- Analista -->
                         <div class="form-group col form-control-sm">
                             <label for="analista">Analista</label>
-                                <select class="form-control" name="analista" id="analista" >
-                                    
-                                    <option selected>Seleccione...</option>
-                                    
-                                    <% for (let i= 0; i < analista.length; i++) { %> 
-                                        <option value="<%= analista[i].id %>">
-                                            <%= analista[i].nombre %> <%= analista[i].apellido %>
-                                        </option>
-                                    <% } %> 
-                                        
-                                </select>
+                            <select
+                                class="form-control"
+                                name="analista"
+                                id="analista"
+                            >
+                                <option selected>Seleccione...</option>
+
+                                <% for (let i= 0; i < analista.length; i++) { %>
+                                <option value="<%= analista[i].id %>">
+                                    <%= analista[i].nombre %> <%=
+                                    analista[i].apellido %>
+                                </option>
+                                <% } %>
+                            </select>
                         </div>
                     </div>
+
                     <div class="form-group row p-1">
                         <!-- observacion/notas -->
                         <div class="form-group col form-control-sm">
                             <label for="nota">Observación</label>
-                            <textarea class="form-control" aria-label="nota" name="nota" id="nota"
+                            <textarea
+                                class="form-control"
+                                aria-label="nota"
+                                name="nota"
+                                id="nota"
                                 placeholder="Anote aquí lo conversado con el prestador"
-                                data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="bottom" 
-                                data-bs-content="Comente brevemente lo conversado con el Prestador"></textarea>
-                            
+                                data-bs-trigger="focus"
+                                data-bs-toggle="popover"
+                                data-bs-placement="bottom"
+                                data-bs-content="Comente brevemente lo conversado con el Prestador"
+                            ></textarea>
                         </div>
                     </div>
-                    
-                    
-                    <div class="form-group row mt-3 p-1 justify-content-center">
-                        <!-- medicamento -->                    
+
+                    <!-- prestador -->
+                    <div class="form-group row mt-1 p-1 justify-content-center">
+                        <%- include("partials/prestador") -%>
+                    </div>
+
+                    <div class="form-group row mt-1 p-1 justify-content-center">
+                        <!-- medicamento -->
                         <%- include("partials/medicamento") -%>
                     </div>
                     <div class="dropdown-divider"></div>
                     <!-- boton enviar -->
-                    
+
                     <div class="col-12 d-flex justify-content-center mt-3">
-                        <a class="btn btn-secondary text-white m-1" href="/" role="button">volver</a>
-                        <button type="submit" class="btn btn-info text-white m-1">
+                        <a
+                            class="btn btn-secondary text-white m-1"
+                            href="/"
+                            role="button"
+                            >volver</a
+                        >
+                        <button
+                            type="submit"
+                            class="btn btn-info text-white m-1"
+                        >
                             Crear!
-                         </button>
+                        </button>
                     </div>
-                    
                 </form>
             </div>
         </section>
-    <!--footer-->
-    <footer class="align-items-end w-100">
-        <%- include("partials/footer") -%>
-    </footer>
+        <!--footer-->
+        <footer class="align-items-end w-100">
+            <%- include("partials/footer") -%>
+        </footer>
 
-    <script>
-        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-            var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-                return new bootstrap.Popover(popoverTriggerEl)
-            })
-        var popover = new bootstrap.Popover(document.querySelector('.popover-dismiss'), {
-                trigger: 'focus'
-            })
-
-        var myModal = document.getElementById('myModal')
-        var myInput = document.getElementById('myInput')
-
-            myModal.addEventListener('shown.bs.modal', function () {
-                myInput.focus()
-            })
-    </script>
-        
+        <script>
+            var popoverTriggerList = [].slice.call(
+                document.querySelectorAll('[data-bs-toggle="popover"]')
+            );
+            var popoverList = popoverTriggerList.map(function (
+                popoverTriggerEl
+            ) {
+                return new bootstrap.Popover(popoverTriggerEl);
+            });
+            
+        </script>
     </body>
 </html>
