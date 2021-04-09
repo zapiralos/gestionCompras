@@ -6,16 +6,15 @@ var gestionesController = require("../controllers/gestionesController")
 /* Creación de gestion de medicamentos*/
 router.get("/crearMedicamento" , gestionesController.medicamentos);
 
-router.post("/crearMedicamento" , gestionesController.guardarMedicamento);
-
-/* Creación de gestion de protesis*/
-router.get("/crearProtesis" , gestionesController.protesis);
-
-router.post("/crearProtesis" , gestionesController.guardarProtesis); 
+router.post("/crearMedicamento" , gestionesController.guardar_gestion);
 
 
-/* vista de gestion */
-router.get("/vista", gestionesController.vista);
+/* vista de gestiones */
+router.get("/" , gestionesController.vistaGestiones);
+
+
+
+
 
 
 module.exports = router;

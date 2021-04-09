@@ -37,7 +37,7 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.INTEGER(11)
         },
         autorizado: {
-            type: dataTypes.INTEGER(11)
+            type: dataTypes.STRING(100)
         }
 
     }

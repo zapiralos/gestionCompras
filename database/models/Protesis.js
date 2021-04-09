@@ -38,6 +38,8 @@ module.exports = function(sequelize, dataTypes){
             as: "gestionPro", 
             foreignKey: "id_protesis"
         });
+        
+        
         //protesis de un proveedor
         Protesis.belongsTo(models.Proveedor, {
             as: "proveedor", 

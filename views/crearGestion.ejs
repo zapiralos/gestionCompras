@@ -19,8 +19,8 @@
                 >
                     <div class="col-12">
                         <h5 class="text-secondary">
-                            <i class="fas fa-prescription-bottle-alt"></i> Crear
-                            Gestión de Medicamento
+                            <i class="far fa-file-alt"></i> Crear
+                            Gestión
                         </h5>
                     </div>
 
@@ -154,11 +154,34 @@
                     <div class="form-group row mt-1 p-1 justify-content-center">
                         <%- include("partials/prestador") -%>
                     </div>
-
+                    
+                    <div class="p-3 justify-content-start bg-light">
+                        <!-- Check para evaluar que tipo de gestión es -->
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="check_medicamento" checked>
+                            <label class="form-check-label text-secondary" for="check_medicamento">
+                                <i class="fas fa-prescription-bottle-alt"></i> Medicamento
+                            </label>
+                          </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="check_protesis">
+                            <label class="form-check-label text-secondary" for="check_protesis">
+                                <i class="fas fa-wheelchair"></i> Prótesis
+                            </label>
+                        </div>
+                    </div>
+                    
+                      
                     <div class="form-group row mt-1 p-1 justify-content-center">
                         <!-- medicamento -->
                         <%- include("partials/medicamento") -%>
                     </div>
+
+                    <div class="form-group row mt-1 p-1 justify-content-center">
+                        <!-- protesis -->
+                        <%- include("partials/protesis") -%>
+                    </div>
+
                     <div class="dropdown-divider"></div>
                     <!-- boton enviar -->
 
