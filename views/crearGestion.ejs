@@ -12,15 +12,14 @@
         <section class="container mt-5 mb-5">
             <div class="row">
                 <form
-                    class="col-xl-7 col-lg-7 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn"
-                    action="/gestiones/crearMedicamento"
+                    class="col-xl-7 col-lg-9 col-md-12 col-sm-12 m-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn"
+                    action="/gestiones/crearGestion"
                     method="POST"
                     id="form"
                 >
                     <div class="col-12">
                         <h5 class="text-secondary">
-                            <i class="far fa-file-alt"></i> Crear
-                            Gestión
+                            <i class="far fa-file-alt"></i> Crear Gestión
                         </h5>
                     </div>
 
@@ -57,7 +56,6 @@
                                 data-bs-toggle="popover"
                                 data-bs-placement="top"
                                 data-bs-content="Ingrese manualmente el número de AP"
-                                required
                             />
                         </div>
                     </div>
@@ -154,30 +152,60 @@
                     <div class="form-group row mt-1 p-1 justify-content-center">
                         <%- include("partials/prestador") -%>
                     </div>
-                    
+
                     <div class="p-3 justify-content-start bg-light">
-                        <!-- Check para evaluar que tipo de gestión es -->
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" value="" id="check_medicamento" checked>
-                            <label class="form-check-label text-secondary" for="check_medicamento">
-                                <i class="fas fa-prescription-bottle-alt"></i> Medicamento
-                            </label>
-                          </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" value="" id="check_protesis">
-                            <label class="form-check-label text-secondary" for="check_protesis">
-                                <i class="fas fa-wheelchair"></i> Prótesis
+                        <!-- radio para elegir que tipo de gestión es -->
+                        <div class="form-check">
+                            <input
+                                class="form-check-input"
+                                type="radio"
+                                name="tipo_gestion"
+                                id="radio_medicamento"
+                                onclick="verificarCheck()"
+                                value="1"
+                                checked
+                            />
+                            <label
+                                class="form-check-label"
+                                for="radio_medicamento"
+                            >
+                                <i class="fas fa-prescription-bottle-alt"></i>
+                                Medicamento
                             </label>
                         </div>
+                        <div class="form-check">
+                            <input
+                                class="form-check-input"
+                                type="radio"
+                                name="tipo_gestion"
+                                id="radio_protesis"
+                                onclick="verificarCheck()"
+                                value="2"
+                            />
+                            <label
+                                class="form-check-label"
+                                for="radio_protesis"
+                            >
+                            <i class="fas fa-wheelchair"></i> Prótesis
+                            </label>
+                                
+                            </label>
+                        </div>
+                        
                     </div>
-                    
-                      
-                    <div class="form-group row mt-1 p-1 justify-content-center">
+
+                    <div
+                        class="form-group row mt-1 p-1 justify-content-center"
+                        id="check_med"
+                    >
                         <!-- medicamento -->
                         <%- include("partials/medicamento") -%>
                     </div>
 
-                    <div class="form-group row mt-1 p-1 justify-content-center">
+                    <div
+                        class="form-group row mt-1 p-1 justify-content-center"
+                        id="check_prot"
+                    >
                         <!-- protesis -->
                         <%- include("partials/protesis") -%>
                     </div>
@@ -206,17 +234,5 @@
         <footer class="align-items-end w-100">
             <%- include("partials/footer") -%>
         </footer>
-
-        <script>
-            var popoverTriggerList = [].slice.call(
-                document.querySelectorAll('[data-bs-toggle="popover"]')
-            );
-            var popoverList = popoverTriggerList.map(function (
-                popoverTriggerEl
-            ) {
-                return new bootstrap.Popover(popoverTriggerEl);
-            });
-            
-        </script>
     </body>
 </html>

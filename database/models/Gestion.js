@@ -18,10 +18,7 @@ module.exports = function(sequelize, dataTypes){
         socio: {
             type: dataTypes.STRING(15)
         },
-        id_medicamento: {
-            type: dataTypes.INTEGER(11)
-        },
-        id_protesis: {
+        tipo_de_gestion: {
             type: dataTypes.INTEGER(11)
         },
         detalle: {
@@ -49,16 +46,6 @@ module.exports = function(sequelize, dataTypes){
     let Gestion = sequelize.define(alias, cols, config);
 
     Gestion.associate = function(models) {
-        //una gestión puede tener varios medicamentos
-        Gestion.hasMany(models.Medicamento, {
-            as: "medicamentos", 
-            foreignKey: "id_medicamento"
-        });
-        //una gestión puede tener varias prótesis
-        Gestion.hasMany(models.Protesis, {
-            as: "protesis", 
-            foreignKey: "id_protesis"
-        });
         //una gestión a un prestador
         Gestion.belongsTo(models.Prestador, {
             as: "prestador",
@@ -66,14 +53,26 @@ module.exports = function(sequelize, dataTypes){
         });
         //una gestión a un auditor
         Gestion.belongsTo(models.Auditor, {
-            as: "auditor", 
-            foreignKey: "id_auditor"
+            as: "auditor",
+            foreignKey: "id_auditor",
         });
         //una gestión a un analista
         Gestion.belongsTo(models.Analista, {
-            as: "analista", 
-            foreignKey: "id_analista"
+            as: "analista",
+            foreignKey: "id_analista",
         });
+        //una gestion - muchas medicamentos
+        Gestion.hasMany(models.Medicamento, {
+            as: "medicamentos",
+            foreignKey: "gestion_id",
+            onDelete: "cascade",
+        });
+        //una gestion - muchas protesis
+        Gestion.hasMany(models.Protesis, {
+            as: "protesis",
+            foreignKey: "gestion_id",
+            onDelete: "cascade",
+        })
     }
 
     return Gestion;
