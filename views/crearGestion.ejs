@@ -11,21 +11,23 @@
         <!--container-->
         <section class="container mt-5 mb-5">
             <div class="row">
+                
                 <form
-                    class="col-xl-7 col-lg-9 col-md-12 col-sm-12 m-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn"
+                    class="col-xl-8 col-lg-8 col-md-12 col-sm-12 m-auto bg-white text-dark rounded "
                     action="/gestiones/crearGestion"
                     method="POST"
                     id="form"
                 >
-                    <div class="col-12">
+                    <div class="col-5 px-3 mt-3">
                         <h5 class="text-secondary">
                             <i class="far fa-file-alt"></i> Crear Gestión
                         </h5>
+                        
                     </div>
-
                     <div class="dropdown-divider"></div>
+                    
 
-                    <div class="form-group row p-1">
+                    <div class="form-group row px-3">
                         <!-- gsc -->
                         <div class="form-group col form-control-sm">
                             <label for="gsc">GSC</label>
@@ -60,9 +62,9 @@
                         </div>
                     </div>
 
-                    <div class="form-group row p-1">
+                    <div class="row px-3">
                         <!--Socio -->
-                        <div class="form-group col form-control-sm">
+                        <div class="form-group col-4 form-control-sm">
                             <label for="socio">Socio</label>
                             <input
                                 type="text"
@@ -73,12 +75,28 @@
                                 data-bs-trigger="focus"
                                 data-bs-toggle="popover"
                                 data-bs-placement="top"
+                                data-bs-content="Ingrese manualmente el Nombre y Apellido del Socio"
+                            />
+                        </div>
+
+                        <!--numero Socio -->
+                        <div class="form-group col-4 form-control-sm">
+                            <label for="socio">Número de Socio</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="num_socio"
+                                id="num_socio"
+                                aria-describedby="socio"
+                                data-bs-trigger="focus"
+                                data-bs-toggle="popover"
+                                data-bs-placement="top"
                                 data-bs-content="Ingrese manualmente el número de Socio"
                             />
                         </div>
 
                         <!-- fecha -->
-                        <div class="form-group col form-control-sm">
+                        <div class="form-group col-4 form-control-sm">
                             <label for="fecha">Fecha</label>
                             <input
                                 type="date"
@@ -90,7 +108,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group row p-1">
+                    <div class="form-group row px-3">
                         <!-- Auditor -->
                         <div class="form-group col form-control-sm">
                             <label for="auditor">Auditor</label>
@@ -112,25 +130,25 @@
 
                         <!-- Analista -->
                         <div class="form-group col form-control-sm">
-                            <label for="analista">Analista</label>
+                            <label for="compras">Analista</label>
                             <select
                                 class="form-control"
-                                name="analista"
-                                id="analista"
+                                name="compras"
+                                id="compras"
                             >
                                 <option selected>Seleccione...</option>
 
-                                <% for (let i= 0; i < analista.length; i++) { %>
-                                <option value="<%= analista[i].id %>">
-                                    <%= analista[i].nombre %> <%=
-                                    analista[i].apellido %>
+                                <% for (let i= 0; i < compras.length; i++) { %>
+                                <option value="<%= compras[i].id %>">
+                                    <%= compras[i].nombre %> <%=
+                                    compras[i].apellido %>
                                 </option>
                                 <% } %>
                             </select>
                         </div>
                     </div>
 
-                    <div class="form-group row p-1">
+                    <div class="form-group row px-3">
                         <!-- observacion/notas -->
                         <div class="form-group col form-control-sm">
                             <label for="nota">Observación</label>
@@ -149,11 +167,11 @@
                     </div>
 
                     <!-- prestador -->
-                    <div class="form-group row mt-1 p-1 justify-content-center">
+                    <div class="form-group row mt-3 px-3 justify-content-center bg-light">
                         <%- include("partials/prestador") -%>
                     </div>
 
-                    <div class="p-3 justify-content-start bg-light">
+                    <div class="justify-content-center m-3">                    
                         <!-- radio para elegir que tipo de gestión es -->
                         <div class="form-check">
                             <input
@@ -195,7 +213,7 @@
                     </div>
 
                     <div
-                        class="form-group row mt-1 p-1 justify-content-center"
+                        class="form-group row justify-content-center"
                         id="check_med"
                     >
                         <!-- medicamento -->
@@ -203,17 +221,16 @@
                     </div>
 
                     <div
-                        class="form-group row mt-1 p-1 justify-content-center"
+                        class="form-group row justify-content-center"
                         id="check_prot"
                     >
                         <!-- protesis -->
                         <%- include("partials/protesis") -%>
                     </div>
 
-                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-divider "></div>
                     <!-- boton enviar -->
-
-                    <div class="col-12 d-flex justify-content-center mt-3">
+                    <div class="col-12 d-flex justify-content-center my-3">
                         <a
                             class="btn btn-secondary text-white m-1"
                             href="/"
@@ -234,5 +251,23 @@
         <footer class="align-items-end w-100">
             <%- include("partials/footer") -%>
         </footer>
+
+        <!--dataTables-->
+        
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.24/b-1.7.0/b-colvis-1.7.0/b-html5-1.7.0/b-print-1.7.0/sc-2.0.3/sl-1.3.3/datatables.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.24/b-1.7.0/sl-1.3.3/datatables.min.js"></script>
+        <!--boostrap script-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+            integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+            crossorigin="anonymous"></script>
+
     </body>
 </html>

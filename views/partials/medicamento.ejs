@@ -1,14 +1,235 @@
+<div class="col px-4 mt-3">
+    <h5 class="text-secondary" id="tituloMedicamento">
+        <i class="fas fa-prescription-bottle-alt"></i> Medicamento
+    </h5>
+    <div class="dropdown-divider"></div>
+</div>
 
-    <div class="modal-header">
-        <h5 class="modal-title" id="prestadorTitle">
-            <i class="fas fa-prescription-bottle-alt"></i> Medicamento
-        </h5>
-        
+
+
+<div class="modal-medicamento">
+    <div class="row">
+        <div class="col-6 px-4">
+
+            <div class="input-group mb-3">
+                <button 
+                class="btn btn-outline-secondary" 
+                type="button" 
+                id="search_medicamento"
+                data-bs-toggle="modal" 
+                data-bs-target="#tablaMedicamentos">
+                    <i class="fas fa-search"></i>
+                </button>
+                <input type="text" class="form-control" placeholder="seleccione un medicamento" aria-describedby="search_medicamento">
+            </div>
+        </div>
+    
+
+        <div 
+        class="modal fade" 
+        id="tablaMedicamentos" 
+        tabindex ="-1" 
+        aria-hidden="true" 
+        aria-labelledby="modalTitle">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <!--header del modal-->
+                    <div class="modal-header">
+                        <h5 class="text-secondary">
+                            <i class="fas fa-prescription-bottle-alt"></i> Seleccione Medicamento
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!--body del modal-->
+                    <div class="modal-body">
+                        <div class="table-resposive mb-3">
+                            <label for="tabla_medicamentos" class="mb-1">Buscar medicamento:</label>
+                            <table
+                                id="tabla_medicamentos"
+                                name="search_medicamento"
+                                class="table-bordered display nowrap table-striped"
+                                style="width: 100%"
+
+                            >
+                            
+                                <thead>
+                                    
+                                        <tr>
+                                            <th>Solicitado</th>
+                                            <th>Presentacion</th>
+                                            <th>Laboratorio</th>
+                                            <th>Monodroga</th>
+                                            <th>Acción</th>
+                                            <th>Forma</th>
+                                            <th>Potencia</th>
+                                            <th>Tamaño</th>
+                                            <th>Unidad</th>
+                                            <th>Vía</th>
+                                            <th>Troquel</th>
+                                            <th>Precio</th>                                        
+                                        <!--<th>Desc. Scienza</th>
+                                            <th>Desc. Rosfar</th>
+                                            <th>Desc. Otro</th> -->
+                                        </tr>
+                                    
+                                </thead>
+                                <tbody>
+                                    
+                                        <% dmedicamento.forEach((user) => { %>
+                                            <tr>
+                                                <td><%= user.medicamento %></td>
+                                                <td><%= user.presentacion %></td>
+                                                <td><%= user.laboratorio %></td>
+                                                <td><%= user.monodroga %></td>
+                                                <td><%= user.accion %></td>
+                                                <td><%= user.forma %></td>
+                                                <td><%= user.potencia %></td>
+                                                <td><%= user.tamanio %></td>
+                                                <td><%= user.unidad %></td>
+                                                <td><%= user.via %></td>
+                                                <td><%= user.troquel %></td>
+                                                <td><%= user.precio %></td>
+                                                
+                                            </tr>
+                                        <% }) %>
+                                    
+                                </tbody>
+                                
+                            </table>
+
+                            <!--modal2 - agregar nuevo prestador-->
+                            <button 
+                            type="button" 
+                            class="mt-5 btn btn-outline-warning" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#nuevoPrestador"
+                            data-bs-dismiss="modal"
+                            >
+                                <i class="fas fa-prescription-bottle-alt"></i> Agregar nuevo medicamento
+                            </button>
+
+                        </div>
+                    </div>
+                    <!--footer del modal-->
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                        >
+                            volver
+                        </button>
+                        <button type="button" 
+                        class="btn btn-primary"
+                        data-bs-dismiss="modal">
+                            seleccionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--mdoal2 - agregar nuevo prestador-->
+        <div 
+        class="modal fade" 
+        id="nuevoPrestador" 
+        tabindex ="-1" 
+        aria-hidden="true" 
+        aria-labelledby="modalTitle">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!--header del modal-->
+                    <div class="modal-header">
+                        <h5 class="text-secondary">
+                            <i class="fas fa-prescription-bottle-alt"></i> Agregar nuevo medicamento
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!--body del modal-->
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <!-- Nombre -->
+                            <div class="form-group col form-control-sm">
+                                <label for="nombre">Nombre</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="nombre"
+                                    id="nombre"
+                                    aria-describedby="nombre"
+                                />
+                            </div>
+
+                            <!-- Apellido -->
+                            <div class="form-group col form-control-sm">
+                                <label for="apellido">Apellido</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="apellido"
+                                    id="apellido"
+                                    aria-describedby="apellido"
+                                />
+                            </div>
+
+                            <!-- cuil -->
+                            <div class="form-group col form-control-sm">
+                                <label for="cuil">Cuil</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="cuil"
+                                    id="cuil"
+                                    aria-describedby="cuil"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <!-- Especialidad -->
+                            <div class="form-group col form-control-sm">
+                                <label for="especialidad">Especialidad</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="especialidad"
+                                    id="especialidad"
+                                    aria-describedby="especialidad"
+                                />
+                            </div>
+
+                            <!-- Matricula -->
+                            <div class="form-group col form-control-sm">
+                                <label for="matricula">Matricula</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="matricula"
+                                    id="matricula"
+                                    aria-describedby="matricula"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <!--footer del modal-->
+                    <div class="modal-footer">
+                        <a href="#tablaPrestadores" 
+                        class="btn btn-primary"
+                        data-bs-dismiss="modal"
+                        data-bs-toggle="modal"
+                        role="button" >Guardar</a>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    
     </div>
-    <div class="modal-body">
-        <div class="form-group row">
+</div>
+
+<div class="container">
+    <div class="row px-3">
             <!-- nombre comercial solicitado-->
-            <div class="form-group col form-control-sm">
+            <div class="form-group col-4 form-control-sm">
                 <label for="nom_med">Medicamento Solicitado</label>
                 <input
                     type="text"
@@ -20,7 +241,7 @@
             </div>
 
             <!-- nombre generico -->
-            <div class="form-group col form-control-sm">
+            <div class="form-group col-4 form-control-sm">
                 <label for="nom_gen_med">Genérico</label>
                 <input
                     type="text"
@@ -32,7 +253,7 @@
             </div>
 
             <!-- nombre comercial ofrecido-->
-            <div class="form-group col form-control-sm">
+            <div class="form-group col-4 form-control-sm">
                 <label for="nom_med_ofr">Medicamento Ofrecido</label>
                 <input
                     type="text"
@@ -42,10 +263,10 @@
                     aria-describedby="nom_med_ofr"
                 />
             </div>
-        </div>
-        <div class="form-group row">
+    </div>
+    <div class="row px-3">
             <!-- estado -->
-            <div class="form-group col form-control-sm">
+            <div class="form-group col-4 form-control-sm">
                 <label for="estado">Estado</label>
                 <select class="form-control" name="estado" id="estado">
                     <option selected>Seleccione...</option>
@@ -58,7 +279,7 @@
                 </select>
             </div>
             <!-- cantidad -->
-            <div class="form-group col form-control-sm">
+            <div class="form-group col-4 form-control-sm">
                 <label for="cantidad">Cantidad</label>
                 <input
                     type="number"
@@ -69,7 +290,7 @@
                 />
             </div>
             <!-- meses autorizados -->
-            <div class="form-group col form-control-sm">
+            <div class="form-group col-4 form-control-sm">
                 <label for="autorizado">Meses Autorizados</label>
                 <input
                     type="text"
@@ -81,7 +302,7 @@
             </div>
         </div>
 
-        <div class="form-group row mt-3 d-flex align-items-start">
+    <div class="row px-3">
             <!-- valor_med -->
             <div class="form-group col-3 form-control-sm">
                 <label for="valor_med">Análisis de Compras</label>
@@ -148,13 +369,7 @@
                     data-bs-content="Medicamento aprobado por el Prestador pero no se encuentra en Stock"
                 />
             </div>
-        </div>
-
-        <!--implementar busqueda desde tabla de medicamentos osde-->
-        <button type="button" class="btn btn-outline-info btn-sm mt-3 button">
-            <i class="fas fa-search"></i> Búsqueda de Medicamento en bases de
-            OSDE
-        </button>
-        <div class="form-text">...proximamente!</div>
     </div>
 
+        
+</div>

@@ -8,6 +8,15 @@ router.get("/crearGestion" , gestionesController.gestion);
 
 router.post("/crearGestion" , gestionesController.guardar_gestion);
 
+/* nuevo prestador */
+router.get("/crearPrestador", gestionesController.nuevoPrestador);
+
+router.post("/crearPrestador", gestionesController.guardarPrestador);
+
+/* nuevo proveedor */
+router.get("/crearProveedor", gestionesController.nuevoProveedor);
+
+router.post("/crearProveedor", gestionesController.guardarProveedor);
 
 
 /* vista de gestiones */

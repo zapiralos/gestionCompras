@@ -50,9 +50,10 @@ module.exports = function(sequelize, dataTypes){
     let Medicamento = sequelize.define(alias, cols, config);
 
     Medicamento.associate = function(models) {
+        // un medicamento esta en muchas gestiones
         Medicamento.belongsTo(models.Gestion, {
-            as: "gestionMed", 
-            foreignKey: "id_medicamento"
+            as: "gestion",
+            foreignKey: "gestion_id",
         });
         //una medicación un estado
         Medicamento.belongsTo(models.Estado, {

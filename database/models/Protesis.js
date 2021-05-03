@@ -35,8 +35,8 @@ module.exports = function(sequelize, dataTypes){
 
     Protesis.associate = function(models) {
         Protesis.belongsTo(models.Gestion, {
-            as: "gestionPro", 
-            foreignKey: "id_protesis"
+            as: "gestion",
+            foreignKey: "gestion_id",
         });
         
         

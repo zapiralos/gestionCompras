@@ -30,7 +30,7 @@ module.exports = function(sequelize, dataTypes){
         fecha: {
             type: dataTypes.DATE
         },
-        id_analista: {
+        id_compras: {
             type: dataTypes.INTEGER(11)
         },
         id_auditor: {
@@ -57,22 +57,22 @@ module.exports = function(sequelize, dataTypes){
             foreignKey: "id_auditor",
         });
         //una gestión a un analista
-        Gestion.belongsTo(models.Analista, {
-            as: "analista",
-            foreignKey: "id_analista",
+        Gestion.belongsTo(models.Compras, {
+            as: "compras",
+            foreignKey: "id_compras",
         });
-        //una gestion - muchas medicamentos
+        //muchas gestiones de un medicamento
         Gestion.hasMany(models.Medicamento, {
             as: "medicamentos",
             foreignKey: "gestion_id",
             onDelete: "cascade",
         });
-        //una gestion - muchas protesis
+        //muchas gestiones de una protesis
         Gestion.hasMany(models.Protesis, {
             as: "protesis",
             foreignKey: "gestion_id",
             onDelete: "cascade",
-        })
+        });
     }
 
     return Gestion;

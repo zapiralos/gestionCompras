@@ -16,10 +16,11 @@
                 >
                     <div class="col-12">
                         <h5 class="text-secondary">
-                            <i class="fas fa-prescription-bottle-alt"></i>
-                            Gestiones en Medicamentos
+                            <i class="fas fa-border-all"></i>
+                            Listado de gestiones
                         </h5>
                         <div class="dropdown-divider"></div>
+
                         <% for (let i=0; i < gestiones.length; i++) { %>
                         <div>
                             <div class="d-flex justify-content-end">
@@ -35,50 +36,116 @@
                             <!--datos de gestion-->
                             <div class="d-flex justify-content-between p-3 m-0">
                                 <div class="gsc">
-                                    <p class="text-info m-0 p-0"><small>GSC</small></p>
-                                    <p class="m-0 p-0"><%= gestiones[i].gsc %></p>
+                                    <p class="text-info m-0 p-0">
+                                        <small>GSC</small>
+                                    </p>
+                                    <p class="m-0 p-0">
+                                        <%= gestiones[i].gsc %>
+                                    </p>
                                 </div>
                                 <div class="ap">
-                                    <p class="text-info m-0 p-0"><small>AP</small></p>
-                                    <p class="m-0 p-0"><%= gestiones[i].ap %></p>
+                                    <p class="text-info m-0 p-0">
+                                        <small>AP</small>
+                                    </p>
+                                    <p class="m-0 p-0">
+                                        <%= gestiones[i].ap %>
+                                    </p>
                                 </div>
                                 <div class="socio">
-                                    <p class="text-info m-0 p-0"><small>Socio</small></p>
-                                    <p class="m-0 p-0"><%= gestiones[i].socio %></p>
+                                    <p class="text-info m-0 p-0">
+                                        <small>Socio</small>
+                                    </p>
+                                    <p class="m-0 p-0">
+                                        <%= gestiones[i].socio %>
+                                    </p>
                                 </div>
                                 <div class="fecha">
-                                    <p class="text-info m-0 p-0"><small>Fecha</small></p>
-                                    <p class="m-0 p-0"><%= gestiones[i].fecha %></p>
+                                    <p class="text-info m-0 p-0">
+                                        <small>Fecha</small>
+                                    </p>
+                                    <p class="m-0 p-0">
+                                        <%= gestiones[i].fecha %>
+                                    </p>
                                 </div>
                             </div>
                             <!--datos de prestador-->
-                            <div class="d-flex bd-highlight bg-light p-3 m-0">
-                                <div class="flex-grow-1 bd-highlight">
-                                    <p class="text-info p-0 m-0">
-                                        Prestador
+                            <div class="d-flex justify-content-between p-3 m-0">
+                                <div class="gsc">
+                                    <p class="text-info m-0 p-0">
+                                        <small>Prestador</small>
                                     </p>
                                     <p class="m-0 p-0">
-                                        <small><%= gestiones[i].prestador.nombre %> </small>
-                                        <%= gestiones[i].prestador.apellido %>
-                                    </p>
+                                        <%= gestiones[i].prestador.nombre %> <%=
+                                        gestiones[i].prestador.apellido %>
                                 </div>
-                                <div class="bd-highlight mx-5">
-                                    <p class="text-info p-0 m-0">
+                                <div class="ap">
+                                    <p class="text-info m-0 p-0">
                                         <small>Especialidad</small>
                                     </p>
                                     <p class="m-0 p-0">
-                                        <%= gestiones[i].prestador.especialidad
-                                        %>
+                                        <%= gestiones[i].prestador.especialidad %>
                                     </p>
                                 </div>
-                                <div class="bd-highlight ml-3">
-                                    <p class="text-info p-0 m-0"><small>Cuil</small></p>
-                                    <p class="m-0 p-0"><%= gestiones[i].prestador.cuil %></p>
+                                <!--datos de auditor-->
+                                <div class="socio">
+                                    <p class="text-info m-0 p-0">
+                                        <small>Auditor</small>
+                                    </p>
+                                    <p class="m-0 p-0">
+                                        <%= gestiones[i].auditor.nombre %> <%= gestiones[i].auditor.apellido %>
+                                    </p>
                                 </div>
+                                <!--datos de analista-->
+                                <div class="socio">
+                                    <p class="text-info m-0 p-0">
+                                        <small>Analista</small>
+                                    </p>
+                                    <p class="m-0 p-0">
+                                        <%= gestiones[i].compras.nombre %> <%= gestiones[i].compras.apellido %>
+                                    </p>
+                                </div>
+                                
                             </div>
-
-                            
-
+                            <!--datos de medicamento PRUEBA-->
+                            <div class="d-flex justify-content-between p-3 m-0">
+                                <div class="gsc">
+                                    <p class="text-info m-0 p-0">
+                                        <small>Medicamento Solicitado</small>
+                                    </p>
+                                    <% if (gestiones[i].tipo_de_gestion == 1) { %> 
+                                    <p class="m-0 p-0">
+                                        <%= gestiones[i].medicamentos.nom_med %> p
+                                    </p>
+                                    <% } %>
+                                </div>
+                                <div class="ap">
+                                    <p class="text-info m-0 p-0">
+                                        <small>Especialidad</small>
+                                    </p>
+                                    <p class="m-0 p-0">
+                                        <%= gestiones[i].prestador.especialidad %>
+                                    </p>
+                                </div>
+                                <!--datos de auditor-->
+                                <div class="socio">
+                                    <p class="text-info m-0 p-0">
+                                        <small>Auditor</small>
+                                    </p>
+                                    <p class="m-0 p-0">
+                                        <%= gestiones[i].auditor.nombre %> <%= gestiones[i].auditor.apellido %>
+                                    </p>
+                                </div>
+                                <!--datos de analista-->
+                                <div class="socio">
+                                    <p class="text-info m-0 p-0">
+                                        <small>Analista</small>
+                                    </p>
+                                    <p class="m-0 p-0">
+                                        <%= gestiones[i].compras.nombre %> <%= gestiones[i].compras.apellido %>
+                                    </p>
+                                </div>
+                                
+                            </div>
                             <div class="dropdown-divider"></div>
                         </div>
                         <% } %>

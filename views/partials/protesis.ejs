@@ -1,10 +1,12 @@
-<div class="modal-header">
-    <h5 class="modal-title" id="prestadorTitle">
+<div class="col px-4 mt-3">
+    <h5 class="text-secondary" id="tituloProtesis">
         <i class="fas fa-wheelchair"></i> Prótesis
     </h5>
+    <div class="dropdown-divider"></div>
 </div>
-<div class="modal-body">
-    <div class="form-group row">
+
+<div class="container">
+    <div class="row px-3">
         <!-- protesis -->
         <div class="form-group col-5 form-control-sm">
             <label for="protesis">Prótesis</label>
@@ -34,21 +36,20 @@
                     </option>
                     <% } %>
                 </select>
-                <button class="btn btn-outline-secondary" type="button"
-                data-bs-trigger="focus"
-                data-bs-toggle="popover"
-                data-bs-placement="right"
-                data-bs-content="permitiria agregar nuevo proveedor, proximamente..."
-                >
+
+                <!--agregar nuevo proveedor-->
+                <a class="btn btn-outline-secondary" type="button"
+                href="#agregar nuevo prestador"
+                data-bs-trigger="focus">
                     <i class="fas fa-user-plus"></i>
-                </button>
+                </a>
             </div>
         </div>
     </div>
 
-    <div class="form-group row mt-3">
+    <div class="row px-3 mb-3">
         <!-- gestion proveedor -->
-        <div class="form-group col form-control-sm">
+        <div class="form-group col-4 form-control-sm">
             <label for="gestion_proveedor">Gestión de Compras</label>
             <input
                 type="text"
@@ -64,7 +65,7 @@
             />
         </div>
         <!-- gestion_auditoria -->
-        <div class="form-group col form-control-sm">
+        <div class="form-group col-4 form-control-sm">
             <label for="gestion_medico">Gestión Médica</label>
             <input
                 type="text"
@@ -80,7 +81,7 @@
             />
         </div>
         <!-- gestion con el prestador SIN ACEPTACION -->
-        <div class="form-group col form-control-sm">
+        <div class="form-group col-4 form-control-sm">
             <label for="gestion_prop_noaceptada "
                 >Propuesta sin Aceptación</label
             >
@@ -97,5 +98,6 @@
                 data-bs-content="Valor NO ahorrado - No aceptación del Prestador"
             />
         </div>
+
     </div>
 </div>

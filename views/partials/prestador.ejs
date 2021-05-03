@@ -1,106 +1,210 @@
-<div class="modal-header">
-    <h5 class="modal-title" id="tituloPrestador">
+<div class="col mt-3">
+    <h5 class="modal-title text-secondary" id="tituloPrestador">
         <i class="fas fa-user-md"></i> Prestador
     </h5>
+    <div class="dropdown-divider"></div>
 </div>
-<div class="modal-body">
-    <div class="form-group row">
-        <div class="form-group col form-control-sm">
+
+
+
+<div class="modal-prestador">
+    <div class="row">
+        <div class="col-6">
             <div class="input-group mb-3">
-                
-                <input
-                    type="text"
-                    class="form-control"
-                    name="busquedaPrestador"
-                    id="busquedaPrestador"
-                    placeholder="búsqueda de prestador"
-                    aria-label="búsqueda de prestador"
-                    aria-describedby="busquedaPrestador"
-                />
-                <button
-                    class="btn btn-outline-secondary"
-                    type="button"
-                    id="botonDeBusqueda"
-                >
+                <button 
+                class="btn btn-outline-secondary" 
+                type="button" 
+                id="button-addon1"
+                data-bs-toggle="modal" 
+                data-bs-target="#tablaPrestadores">
                     <i class="fas fa-search"></i>
                 </button>
+                <input type="text" 
+                class="form-control" 
+                id="prest_seleccionado" 
+                placeholder="seleccione un prestador" 
+                value="" 
+                name="prest_seleccionado">
             </div>
+        </div>
+        <div 
+        class="modal fade" 
+        id="tablaPrestadores" 
+        tabindex ="-1" 
+        aria-hidden="true" 
+        aria-labelledby="modalTitle">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <!--header del modal-->
+                    <div class="modal-header">
+                        <h5 class="text-secondary">
+                            <i class="fas fa-user-md"></i> Seleccione Prestador
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!--body del modal-->
+                    <div class="modal-body">
+                        <div class="table-resposive mb-3">
+                            <label for="tabla_prestadores" class="mb-1">Buscar prestador:</label>
+                            <table
+                                id="tabla_prestadores"
+                                name="search_prestador"
+                                class="table table-striped table-bordered"
+                                style="width: 100%"
+                            >
+                                <thead>
+                                    <tr>
+                                        
+                                        <th>Nombre</th>
+                                        <th>Apellido</th>
+                                        <th>Especialidad</th>
+                                        <th>Cuil</th>
+                                        <th>Matricula</th>
+                                        <th>Rating</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% prestador.forEach((user) => { %>
+                                    <tr>
+                                        
+                                        <td><%= user.nombre %></td>
+                                        <td><%= user.apellido %></td>
+                                        <td><%= user.especialidad %></td>
+                                        <td><%= user.cuil %></td>
+                                        <td><%= user.matricula %></td>
+                                        <td><%= user.rating %></td>
+                                    </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
 
-            <ul id="resultado">
-                <li>
-                    <a href="#" id="seleccion"></a>
-                </li>
-            </ul>
+                            <!--modal2 - agregar nuevo prestador-->
+                            <button 
+                            type="button" 
+                            class="mt-5 btn btn-outline-warning" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#nuevoPrestador"
+                            data-bs-dismiss="modal"
+                            >
+                                <i class="fas fa-user-plus"></i> Agregar nuevo Prestador
+                            </button>
+
+                        </div>
+                    </div>
+                    <!--footer del modal-->
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                        >
+                            volver
+                        </button>
+                        <button type="button" 
+                        class="btn btn-primary"
+                        data-bs-dismiss="modal"
+                        id="sel_pretador">
+                            seleccionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--mdoal2 - agregar nuevo prestador-->
+        <div 
+        class="modal fade" 
+        id="nuevoPrestador" 
+        tabindex ="-1" 
+        aria-hidden="true" 
+        aria-labelledby="modalTitle">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!--header del modal-->
+                    <div class="modal-header">
+                        <h5 class="text-secondary">
+                            <i class="fas fa-user-md"></i> Agregar nuevo prestador
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!--body del modal-->
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <!-- Nombre -->
+                            <div class="form-group col form-control-sm">
+                                <label for="nombre">Nombre</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="nombre"
+                                    id="nombre"
+                                    aria-describedby="nombre"
+                                />
+                            </div>
+
+                            <!-- Apellido -->
+                            <div class="form-group col form-control-sm">
+                                <label for="apellido">Apellido</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="apellido"
+                                    id="apellido"
+                                    aria-describedby="apellido"
+                                />
+                            </div>
+
+                            <!-- cuil -->
+                            <div class="form-group col form-control-sm">
+                                <label for="cuil">Cuil</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="cuil"
+                                    id="cuil"
+                                    aria-describedby="cuil"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <!-- Especialidad -->
+                            <div class="form-group col form-control-sm">
+                                <label for="especialidad">Especialidad</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="especialidad"
+                                    id="especialidad"
+                                    aria-describedby="especialidad"
+                                />
+                            </div>
+
+                            <!-- Matricula -->
+                            <div class="form-group col form-control-sm">
+                                <label for="matricula">Matricula</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="matricula"
+                                    id="matricula"
+                                    aria-describedby="matricula"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <!--footer del modal-->
+                    <div class="modal-footer">
+                        <a href="#tablaPrestadores" 
+                        class="btn btn-primary"
+                        data-bs-dismiss="modal"
+                        data-bs-toggle="modal"
+                        role="button" >Guardar</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-    <div class="form-group row">
-        <!-- Nombre -->
-        <div class="form-group col form-control-sm">
-            <label for="nombre">Nombre</label>
-            <input
-                type="text"
-                class="form-control"
-                name="nombre"
-                id="nombre"
-                aria-describedby="nombre"
-            />
-        </div>
-
-        <!-- Apellido -->
-        <div class="form-group col form-control-sm">
-            <label for="apellido">Apellido</label>
-            <input
-                type="text"
-                class="form-control"
-                name="apellido"
-                id="apellido"
-                aria-describedby="apellido"
-            />
-        </div>
-
-        <!-- cuil -->
-        <div class="form-group col form-control-sm">
-            <label for="cuil">Cuil</label>
-            <input
-                type="text"
-                class="form-control"
-                name="cuil"
-                id="cuil"
-                aria-describedby="cuil"
-            />
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <!-- Especialidad -->
-        <div class="form-group col form-control-sm">
-            <label for="especialidad">Especialidad</label>
-            <input
-                type="text"
-                class="form-control"
-                name="especialidad"
-                id="especialidad"
-                aria-describedby="especialidad"
-            />
-        </div>
-
-        <!-- Matricula -->
-        <div class="form-group col form-control-sm">
-            <label for="matricula">Matricula</label>
-            <input
-                type="text"
-                class="form-control"
-                name="matricula"
-                id="matricula"
-                aria-describedby="matricula"
-            />
-        </div>
-    </div>
-
-    <!--implementar busqueda desde tabla de prestadores osde-->
-    <button type="button" class="btn btn-outline-info btn-sm mt-3 button">
-        <i class="fas fa-search"></i> Búsqueda de Prestador Osde
-    </button>
-    <div class="form-text">...proximamente!</div>
 </div>
+
+
